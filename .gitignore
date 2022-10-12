@@ -1,0 +1,24 @@
+# https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+node_modules
+yarn-error.log
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+
+# Those folders are meant to contain the prepack build artifacts; we don't commit them
+/packages/*/lib/*
+package.tgz
+
+/coverage
+
+.DS_Store
+
+.idea

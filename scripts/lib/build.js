@@ -1,0 +1,1 @@
+import{build as i}from"esbuild";const t=["core"];t.forEach(e=>{i({entryPoints:[`packages/golgi-${e}/src/index.ts`],bundle:!0,outfile:`packages/golgi-${e}/lib/index.js`,external:["@golgi"],format:"esm",minify:!0,target:"es6"})});

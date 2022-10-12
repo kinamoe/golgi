@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ES6"],
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "strict": true
+  }
+}

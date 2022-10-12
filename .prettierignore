@@ -1,0 +1,7 @@
+.yarn/*
+.pnp.*
+
+/packages/*/lib/**
+/scripts/lib/**
+/docs/**
+/coverage/**

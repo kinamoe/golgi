@@ -1,0 +1,3 @@
+# @manor/core
+
+@manor/core

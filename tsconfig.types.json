@@ -1,0 +1,5 @@
+{
+  "files": [],
+  "include": [],
+  "references": [{ "path": "./packages/golgi-core/tsconfig.types.json" }]
+}

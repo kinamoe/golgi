@@ -1,0 +1,7 @@
+{
+  "name": "golgi",
+  "readme": "README.md",
+  "entryPoints": ".",
+  "entryPointStrategy": "packages",
+  "out": "doc"
+}
