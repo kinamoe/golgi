@@ -1,4 +1,4 @@
-import { TaskCompletion } from "./Task.js";
+import { Task, TaskCompletion } from "./Task.js";
 
 enum SchedulerStatus {
   Stopped = 0,
@@ -12,10 +12,10 @@ interface SchedulerHooks {
 }
 
 abstract class Scheduler {
-  protected abstract schedule(): boolean;
   public abstract start(): Promise<void>;
   public abstract stop(): Promise<void>;
   public abstract getStatus(): Promise<SchedulerStatus>;
+  public abstract addTask(task: Task): Promise<void>;
 }
 
 export { Scheduler, SchedulerStatus, SchedulerHooks };

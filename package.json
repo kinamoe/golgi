@@ -4,24 +4,26 @@
   "type": "module",
   "packageManager": "yarn@3.2.4",
   "scripts": {
-    "build": "yarn build:lib && yarn build:types",
+    "build": "yarn build:clean && yarn build:scripts && yarn build:lib && yarn build:types && yarn doc",
     "build:clean": "yarn shx rm -rf packages/*/{lib,*.tsbuildinfo}",
-    "build:dev": "yarn tsc --build tsconfig.dev.json",
     "build:scripts": "yarn node ./scripts/lib/build-scripts.js",
     "build:lib": "yarn node ./scripts/lib/build.js",
     "build:types": "yarn tsc --build tsconfig.types.json",
+    "build:dev": "yarn tsc --build tsconfig.dev.json",
     "build:watch": "yarn tsc --build --watch tsconfig.dev.json",
-    "doc": "yarn typedoc --out docs .",
-    "lint": "yarn eslint .",
-    "style:check": "yarn prettier -c .",
+    "style": "yarn prettier -c .",
     "style:write": "yarn prettier -w .",
-    "test": "yarn jest ."
+    "lint": "yarn eslint .",
+    "test": "yarn jest .",
+    "test:coverage": "yarn jest --coverage .",
+    "doc": "yarn typedoc --out docs ."
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@types/jest": "^29.1.2",
+    "@types/node": "^18.8.4",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "esbuild": "^0.15.10",

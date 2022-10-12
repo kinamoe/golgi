@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
-    "lib": ["ES6"],
+    "lib": ["ES6", "DOM"],
     "moduleResolution": "node",
     "emitDeclarationOnly": true,
     "strict": true

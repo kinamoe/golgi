@@ -6,13 +6,16 @@ class GreedyScheduler extends Scheduler {
   protected queue: AsyncQueue<Task>;
   protected concurrent: number;
   protected maxConcurrent: number;
-  protected processer: (task: Task) => Promise<TaskCompletion>;
+  protected processer: (
+    task: Task,
+    scheduler: Scheduler
+  ) => Promise<TaskCompletion>;
   protected status: SchedulerStatus = SchedulerStatus.Stopped;
   protected hooks: SchedulerHooks;
 
   constructor(
     queue: AsyncQueue<Task>,
-    processer: (task: Task) => Promise<TaskCompletion>,
+    processer: (task: Task, scheduler: Scheduler) => Promise<TaskCompletion>,
     maxConcurrent = 1,
     hooks: SchedulerHooks = {}
   ) {
@@ -32,7 +35,7 @@ class GreedyScheduler extends Scheduler {
       this.concurrent++;
       this.queue
         .dequeue()
-        .then((task) => this.processer(task))
+        .then((task) => this.processer(task, this))
         .then(async (completion) => {
           this.concurrent--;
           if (this.hooks.completionHook !== undefined) {
@@ -72,6 +75,10 @@ class GreedyScheduler extends Scheduler {
 
   public async getStatus(): Promise<SchedulerStatus> {
     return this.status;
+  }
+
+  public async addTask(task: Task): Promise<void> {
+    this.queue.enqueue(task);
   }
 }
 

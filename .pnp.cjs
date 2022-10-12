@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@types/jest", "npm:29.1.2"],\
+            ["@types/node", "npm:18.8.4"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8f1e2f4480803a40a9e0d25f52e53b8d2da4166f4ce0f452eee40d16f93fb1902b7826559a330aae464cfe1ab76a835b848f855aaf429b453b7c062e6f2709de#npm:5.40.0"],\
             ["@typescript-eslint/parser", "virtual:8f1e2f4480803a40a9e0d25f52e53b8d2da4166f4ce0f452eee40d16f93fb1902b7826559a330aae464cfe1ab76a835b848f855aaf429b453b7c062e6f2709de#npm:5.40.0"],\
             ["esbuild", "npm:0.15.10"],\
@@ -890,6 +891,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@golgi/monorepo", "workspace:."],\
             ["@types/jest", "npm:29.1.2"],\
+            ["@types/node", "npm:18.8.4"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8f1e2f4480803a40a9e0d25f52e53b8d2da4166f4ce0f452eee40d16f93fb1902b7826559a330aae464cfe1ab76a835b848f855aaf429b453b7c062e6f2709de#npm:5.40.0"],\
             ["@typescript-eslint/parser", "virtual:8f1e2f4480803a40a9e0d25f52e53b8d2da4166f4ce0f452eee40d16f93fb1902b7826559a330aae464cfe1ab76a835b848f855aaf429b453b7c062e6f2709de#npm:5.40.0"],\
             ["esbuild", "npm:0.15.10"],\

@@ -1,7 +1,11 @@
+import { Scheduler } from "./Scheduler.js";
 import { Task, TaskCompletion } from "./Task.js";
 
 class Mux {
-  protected registry: Map<string, (task: Task) => Promise<TaskCompletion>>;
+  protected registry: Map<
+    string,
+    (task: Task, scheduler: Scheduler) => Promise<TaskCompletion>
+  >;
 
   constructor() {
     this.registry = new Map();
@@ -9,16 +13,19 @@ class Mux {
 
   public register(
     type: string,
-    processer: (task: Task) => Promise<TaskCompletion>
+    processer: (task: Task, scheduler: Scheduler) => Promise<TaskCompletion>
   ) {
     this.registry.set(type, processer);
   }
 
-  public getProcesser(): (task: Task) => Promise<TaskCompletion> {
-    return async (task: Task) => {
+  public getProcesser(): (
+    task: Task,
+    scheduler: Scheduler
+  ) => Promise<TaskCompletion> {
+    return async (task: Task, scheduler: Scheduler) => {
       const processer = this.registry.get(task.getType());
       if (processer !== undefined) {
-        return processer(task);
+        return processer(task, scheduler);
       } else {
         throw Error(
           `Task type "${task.getType()}" does not exist in Mux's registry`
