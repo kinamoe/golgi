@@ -3,7 +3,7 @@ abstract class Queue<T> {
   public abstract dequeue(): T | undefined;
   public abstract getCount(): number;
   public abstract isEmpty(): boolean;
-  public abstract clear();
+  public abstract clear(): void;
 }
 
 export { Queue };
