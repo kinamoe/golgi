@@ -13,8 +13,8 @@ class GreedyScheduler extends Scheduler {
   constructor(
     queue: AsyncQueue<Task>,
     processer: (task: Task) => Promise<TaskCompletion>,
-    maxConcurrent: number,
-    hooks: SchedulerHooks
+    maxConcurrent = 1,
+    hooks: SchedulerHooks = {}
   ) {
     super();
     this.queue = queue;
